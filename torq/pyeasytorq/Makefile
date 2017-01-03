@@ -1,16 +1,15 @@
 DEFS = -DOS_UBUNTU -DLITTLE_ENDIAN -DCXLM_NO_ENC -DCODE_CONVERSION_SUPPORT -DWSTRING_CONVERSION_SUPPORT -DREQUIRE_RNR
 
-OPTS = -O2 -fpermissive -I/usr/include/python2.6/
-#OPTS = -O2 -fpermissive
+OPTS = -O2 -fpermissive -fPIC -I/usr/include/python2.7/
 
-LIBS = -licule -licutu -licuio -licuuc -liculx -licudata -licui18n -lboost_thread-mt
+LIBS = -licule -licutu -licuio -licuuc -liculx -licudata -licui18n -lboost_thread -lboost_system
 
 OBJS = easytorq.o interpreter.o pyeasytorq.o texttoken.o torqcommon.o unportable.o utf8support.o
 
 CC = g++
 
 ../../ubuntu32/scripts/easytorq.so: $(OBJS)
-	$(CC) $(LIBS) -shared -o $@ $(OBJS)
+	$(CC) $(OPTS) -shared -o $@ $(OBJS) $(LIBS)
 
 .cpp.o:
 	$(CC) $(DEFS) $(OPTS) -c $< -o $@

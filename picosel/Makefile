@@ -1,9 +1,9 @@
 DEFS = -DOS_UBUNTU -DLITTLE_ENDIAN -DCXLM_NO_ENC -DCODE_CONVERSION_SUPPORT -DWSTRING_CONVERSION_SUPPORT -DREQUIRE_RNR
 
-#OPTS = -O2 -I/usr/include/python2.5/
+#OPTS = -O2 -I/usr/include/python2.7/
 OPTS = -O2 -fpermissive
 
-#LIBS = -licule -licutu -licuio -licuuc -liculx -licudata -licui18n -lboost_thread-mt
+#LIBS = -licule -licutu -licuio -licuuc -liculx -licudata -licui18n -lboost_thread -lboost_system
 LIBS =
 
 OBJS = picosel.o unportable.o
